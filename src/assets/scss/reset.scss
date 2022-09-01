@@ -1,0 +1,54 @@
+body,div,p,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,a,input,button,textarea,select{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-size:0.26rem;
+}
+html,body{
+  font-family:Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+  font-size:0.26rem;
+}
+a{
+  text-decoration: none;
+}
+ul,li{
+  list-style: none;
+}
+input{
+  font: normal;
+  outline: none;
+}
+input:focus,a:focus{
+  outline: none;
+}
+
+@media only screen and (min-width: 750px) {
+  html {
+    font-size:100px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  html {
+    font-size:100px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  html {
+    font-size:85.3px;
+  }
+}
+@media only screen and (max-width: 414px) {
+  html {
+    font-size:55.2px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  html {
+    font-size:50px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  html {
+    font-size:42.6px;
+  }
+}

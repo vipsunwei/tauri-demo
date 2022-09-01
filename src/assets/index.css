@@ -1,0 +1,326 @@
+@font-face {
+  font-family: "Digital";
+  src: url("./fonts/Digital-Readout.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PangMenZhengDao";
+  src: url("./fonts/PangMenZhengDaoBiaoTiTi-1.ttf") format("truetype");
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #021120;
+  color: white;
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #021120;
+  /* 为保证地图充满页面改的，请不要改回去 */
+  /* min-width: 1200px; */
+  /* min-height: 768px; */
+  position: relative;
+}
+@media only screen and (max-width: 750px) {
+  #app {
+    min-width: 100% !important;
+    /* 为保证地图充满页面改的，请不要改回去 */
+    /* padding-bottom: 1.24rem; */
+    /* height: auto !important; */
+  }
+  .van-popover__content {
+    background: #052140 !important;
+    border: 1px solid #24507e;
+  }
+  .van-popover__action-text {
+    color: #fff;
+    padding: 0 0.2rem;
+  }
+  .van-popover__arrow {
+    display: none;
+  }
+  .van-popover__action {
+    padding: 0 0.2rem;
+  }
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  box-sizing: border-box;
+}
+/* 设置滚动条的按钮 */
+::-webkit-scrollbar-button:vertical:start {
+  /* background: url(img/scroll_vertical_start.png) no-repeat center center; */
+  background: url(./scroll_vertical_start.png) no-repeat center center;
+  background-size: 8px 4px;
+}
+::-webkit-scrollbar-button:vertical:end {
+  /* background: url(img/scroll_vertical_end.png) no-repeat center center; */
+  background: url(./scroll_vertical_end.png) no-repeat center center;
+  background-size: 8px 4px;
+}
+::-webkit-scrollbar-button:horizontal:start {
+  /* background: url(img/scroll_horizontal_start.png) no-repeat center center; */
+  background: url(./scroll_horizontal_start.png) no-repeat center center;
+  background-size: 4px 8px;
+}
+::-webkit-scrollbar-button:horizontal:end {
+  /* background: url(img/scroll_horizontal_end.png) no-repeat center center; */
+  background: url(./scroll_horizontal_end.png) no-repeat center center;
+  background-size: 4px 8px;
+}
+::-webkit-scrollbar-button:single-button {
+  display: none;
+}
+::-webkit-scrollbar:vertical {
+  width: 8px;
+  height: 20px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 8px;
+  width: 20px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  width: 8px;
+  background: transparent;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  background: #224d7d;
+  padding: 0 0px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #224d7d;
+}
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background: none;
+}
+.el-table
+  .el-table__body
+  .el-table__row
+  .el-table__cell
+  .el-button.el-button--primary.el-button--default {
+  background: #042d53;
+  color: #00cced;
+  border: 1px solid #042d53;
+  box-shadow: 0 0 10px #042d53 inset;
+  outline: none;
+}
+.el-radio {
+  height: 14px;
+}
+.el-radio__label {
+  color: #88b3d2;
+}
+.el-radio__inner {
+  background: none;
+  border: 1px solid #0dd2e6;
+}
+.el-radio__input.is-checked .el-radio__inner {
+  border: 1.2px solid #0dd2e6;
+  background: none;
+}
+.el-radio__input.is-checked .el-radio__inner::after {
+  background: #0dd2e6;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+.el-tree-node__content:hover {
+  background: none;
+}
+.el-tree-node:focus > .el-tree-node__content {
+  background: #051f3a73;
+}
+
+.el-date-range-picker__content .el-date-range-picker__header div,
+.el-date-table th,
+.el-date-table,
+.el-picker-panel__icon-btn,
+.el-select-dropdown__item,
+.el-date-table td.next-month,
+.el-date-table td.prev-month,
+.el-select-dropdown__option-item:hover,
+.el-select-dropdown__option-item,
+.el-select-dropdown__option-item.selected {
+  color: #fff !important;
+}
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
+  background-color: #1b3152 !important;
+}
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover,
+.el-select-dropdown__option-item:hover,
+.el-select-dropdown__option-item.hover {
+  background: #1b3152 !important;
+}
+.el-date-table td.next-month,
+.el-date-table td.prev-month {
+  color: #6f798d;
+}
+.el-picker__popper.el-popper,
+.el-picker__popper.el-popper[role="tooltip"],
+.el-select__popper.el-popper[role="tooltip"],
+.el-select-v2__popper.el-popper[role="tooltip"] {
+  box-shadow: 0 0 10px #211834;
+  background: #062341;
+  border-color: #555d6e;
+}
+.el-popper.is-light .el-popper__arrow::before {
+  background: #062341;
+}
+.el-popover.el-popper {
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: #062341;
+  color: #fff;
+}
+.el-popover.el-popper
+  .el-popconfirm
+  .el-popconfirm__action
+  .el-button.el-button--text.el-button--small {
+  color: #fff;
+}
+.el-popover.el-popper
+  .el-popconfirm
+  .el-popconfirm__action
+  .el-button.el-button--primary.el-button--small {
+  color: #00cced;
+  background: #042d53;
+  border: none;
+  outline: none;
+  border-radius: 0;
+}
+.el-picker-panel {
+  background: #062341;
+}
+.el-picker-panel .el-picker-panel__body .el-input__inner {
+  /* background: #042d53; */
+  color: #a3cccc;
+  /* border: 1px solid #043267; */
+  border-radius: 0;
+}
+.el-picker-panel .el-picker-panel__footer {
+  background: transparent;
+}
+.el-picker-panel
+  .el-picker-panel__footer
+  .el-button.el-button--small.is-plain.el-picker-panel__link-btn {
+  background: #042d53;
+  color: #00cced;
+  border: none;
+  outline: none;
+  border-radius: 0;
+}
+
+.el-year-table td.today .cell {
+  color: #fff !important;
+}
+
+.el-date-table td.in-range div {
+  background: #5a9bfb;
+}
+.el-date-table td.in-range div:hover {
+  background: #5a9bfb;
+}
+.el-date-table td.available:hover {
+  /* color: #013c78; */
+}
+
+.el-message-box {
+  background-color: rgba(6, 35, 65, 0.8) !important;
+  border: 1px solid #24507e !important;
+}
+
+.el-message-box__title {
+  color: white !important;
+}
+
+.el-message-box__content {
+  color: white !important;
+}
+
+@media screen and (min-width: 1900px) {
+  .shopStatisticsDate {
+    transform: translate(306px, 190px);
+  }
+}
+.shopStatisticsDate .el-popper__arrow {
+  display: none;
+}
+
+.dates .van-picker__columns > .van-picker-column:nth-child(2),
+.dates .van-picker__columns > .van-picker-column:nth-child(3),
+.dates .van-picker__columns > .van-picker-column:nth-child(4),
+.dates .van-picker__columns > .van-picker-column:nth-child(5) {
+  display: none;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #ededed !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent;
+  background-image: none;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+.el-table {
+  background-color: transparent;
+}
+
+.el-table__border-left-patch {
+  background: #043267;
+}
+.el-table--border .el-table__inner-wrapper::after,
+.el-table--border::after,
+.el-table--border::before,
+.el-table__inner-wrapper::before {
+  background-color: #043267;
+}
+
+.receive_time .separator {
+  padding: 0 15px;
+  color: #a3cccc;
+  font-size: 14px;
+}
+
+.el-dialog {
+  background: #062341;
+}
+
+.el-dialog__body .el-checkbox {
+  color: #b5dff3;
+}
+
+.el-dialog__body .el-input__inner {
+  /* background: #042d53; */
+  /* border: 1px solid #043267; */
+  outline: none;
+  /* box-shadow: 0 0 10px inset #043267; */
+  color: #b5dff3;
+  border-radius: 0;
+}
+.el-dialog__body .el-form-item__label {
+  color: #b5dff3;
+}
+.el-input__icon.el-icon {
+  align-self: center;
+}
+
+.el-input__wrapper {
+  display: flex !important;
+}

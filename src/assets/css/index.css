@@ -1,0 +1,296 @@
+html,
+body,
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: arial;
+  font-size: 1vw;
+  background: #fff;
+}
+
+.outBox {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.title {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  color: #fff;
+  text-align: center;
+}
+
+.title span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 1.4vw;
+  line-height: 3vw;
+}
+
+.title img {
+  width: 60%;
+}
+
+.chartBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.chartBox .charts {
+  width: 30vw;
+  height: 17vw;
+  position: absolute;
+  z-index: 9;
+  box-sizing: border-box;
+  color: #fff;
+  padding-top: 3vw;
+  border: 1px solid #17468b;
+  background: rgba(23, 92, 184, 0.5);
+  /* overflow: hidden; */
+}
+
+.chartBox .charts .chart_line {
+  width: 100%;
+  height: 110%;
+}
+
+.chartBox .charts.charts1 {
+  top: 6vw;
+  left: 3vw;
+  height: 14vw;
+  width: 14vw;
+}
+
+.chartBox .charts.charts2 {
+  top: 23vw;
+  left: 3vw;
+  height: 14vw;
+  width: 14vw;
+}
+
+.chartBox .charts.charts3 {
+  top: 2vw;
+  right: 3vw;
+}
+
+.chartBox .charts.charts4 {
+  top: 20vw;
+  right: 3vw;
+  background: rgba(23, 92, 184, 0.8);
+  padding-top: 1vw;
+  height: 34vw;
+}
+.chartBox .charts1 .info,
+.infoState {
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 1vw;
+}
+.chartBox .charts1 .info > div {
+  margin-bottom: 1vw;
+}
+/* .chartBox .charts1 .info>div{
+	width: 60%;
+	float: left;
+}
+.chartBox .charts1 .info>div:first-child{
+	width: 40%;
+} */
+
+.chartBox .charts .lt {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 10%;
+  height: 10%;
+  border-top: 2px solid #297ad6;
+  border-left: 2px solid #297ad6;
+  border-top-left-radius: 3px;
+}
+
+.chartBox .charts .rt {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10%;
+  height: 10%;
+  border-top: 2px solid #297ad6;
+  border-right: 2px solid #297ad6;
+  border-top-right-radius: 3px;
+}
+
+.chartBox .charts .lb {
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  width: 10%;
+  height: 10%;
+  border-bottom: 2px solid #297ad6;
+  border-left: 2px solid #297ad6;
+  border-bottom-left-radius: 3px;
+}
+
+.chartBox .charts .rb {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 10%;
+  height: 10%;
+  border-bottom: 2px solid #297ad6;
+  border-right: 2px solid #297ad6;
+  border-bottom-right-radius: 3px;
+}
+
+.chartBox .charts .tit {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  z-index: 2;
+  background: url(../img/tit.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 4px 12px;
+  padding-right: 16px;
+  white-space: nowrap;
+  /* font-size: 2vw; */
+}
+
+.chartBox .charts .stateInfo {
+  box-sizing: border-box;
+  padding: 0 0 0 1vw;
+}
+.chartBox .charts .stateInfo li {
+  width: 50%;
+  float: left;
+  margin-bottom: 0.4vw;
+}
+.equipment {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 1vw;
+}
+.equipment div {
+  box-sizing: border-box;
+  padding-right: 1vw;
+  margin-bottom: 1vw;
+}
+.equipment div span {
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+  background: green;
+  display: inline-block;
+  margin-left: 1vw;
+  margin-bottom: -0.1vw;
+  float: right;
+}
+.seltSondeId {
+  min-width: 6vw;
+  height: 2vw;
+  line-height: 2vw;
+  background: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 0.4vw;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  top: 1vw;
+  left: 1vw;
+}
+.ballSondeId {
+  padding: 0.4vw 0.8vw;
+  background: #fff;
+  border-radius: 4px;
+  position: absolute;
+  top: 4vw;
+  left: 1vw;
+  z-index: 10;
+  display: none;
+}
+.ballSondeId .triangle {
+  width: 0;
+  height: 0;
+  border: 0.5vw solid;
+  z-index: 10;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -1vw;
+  left: 6px;
+}
+.ballSondeId #ballSondeId > div {
+  line-height: 2vw;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+.ballSondeId #ballSondeId > div:last-child {
+  border: none;
+}
+
+#foo {
+  width: 3vw;
+  height: 3vw;
+  padding: 1vw;
+}
+.Btn {
+  width: 7vw;
+  height: 3vw;
+  background: url(../img/button.png) no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1vw;
+  font-size: 1vw;
+  z-index: 19;
+}
+.fullScreen {
+  left: 18vw;
+}
+
+.chartBox .charts .stateInfo {
+  font-size: 0.9vw;
+}
+.chartBox .charts.charts1 {
+  top: 6vw;
+}
+.chartBox .charts.charts2 {
+  top: 21vw;
+}
+.chartBox .charts0 .sondeidInfo > div {
+  margin-bottom: 1vw;
+}
+.chartBox .charts.charts3 {
+  height: 13vw;
+  top: 1vw;
+}
+.chartBox .charts.charts4 {
+  top: 15vw;
+  height: 32vw;
+}
