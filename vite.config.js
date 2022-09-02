@@ -33,6 +33,10 @@ export default ({ command, mode }) => {
           target: "https://sonde.r7tec.com",
           changeOrigin: true,
         },
+        "^/lixianditu/.*": {
+          target: "https://sonde.r7tec.com",
+          changeOrigin: true,
+        },
       },
     },
     // to make use of `TAURI_DEBUG` and other env variables

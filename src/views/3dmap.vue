@@ -284,7 +284,7 @@ function initCesium() {
     // terrainProvider:terrainProvider
     imageryProvider: new Cesium.UrlTemplateImageryProvider({
       // url: `${__CURRENT_CONFIG__.MapBaseUrl}/lixianditu/map/L{_z}/{_y}/{_x}.png`, //服务地址
-      url: `https://sonde.r7tec.com/lixianditu/map/L{_z}/{_y}/{_x}.png`, //服务地址
+      url: `${import.meta.env.VITE_BASE_baseMAPURL}/lixianditu/map/L{_z}/{_y}/{_x}.png`, //服务地址
       maximumLevel: 8,
       customTags: {
         _z: function (imageryProvider, x, y, level) {

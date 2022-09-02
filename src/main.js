@@ -1,3 +1,4 @@
+import { invoke } from "@tauri-apps/api/tauri";
 import { createApp } from "vue";
 import App from "./App.vue";
 // 按需引入
@@ -15,6 +16,11 @@ import "animate.css";
 // import "../public/Build/Cesium/cesium-navigation.css";
 import "./assets/css/mapbox-gl.css";
 import "./assets/index.css";
+
+document.addEventListener("DOMContentLoaded", () => {
+  invoke("close_splashscreen");
+});
+
 const app = createApp(App);
 
 app.use(router);

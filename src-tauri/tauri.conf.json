@@ -14,6 +14,7 @@
     "allowlist": {
       "all": true
     },
+    "macOSPrivateApi": true,
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -55,11 +56,24 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "title": "往返平漂式探空路径选择数据库和展示系统",
+        "width": 1280,
         "height": 800,
         "resizable": true,
-        "title": "往返平漂式探空路径选择数据库和展示系统",
-        "width": 1280
+        "fullscreen": false,
+        "visible": false,
+        "center": true,
+        "label": "main"
+      },
+      {
+        "width": 240,
+        "height": 135,
+        "decorations": false,
+        "url": "circle.gif",
+        "label": "splashscreen",
+        "visible": true,
+        "center": true,
+        "transparent": true
       }
     ]
   }
